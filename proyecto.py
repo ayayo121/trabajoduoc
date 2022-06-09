@@ -34,10 +34,16 @@ while entrada != "5":
     if entrada == "2":
             asientos_avion()
             print("Porfavor Registre los Siguientes Datos A continuacion ... ")
-            nombrePasajero = input("ingrese su Nombre")
-            rutPasajero = input("ingrese su Rut")
-            telefonoPasajero = input("ingrese su Telefono")
-            bancoPasajero = input("ingrese al banco que Pertenece")
+            nombrePasajero = input("ingrese su Nombre: ")
+            rutPasajero = int(input("ingrese su Rut: "))
+            while rutPasajero < 5000000 or rutPasajero > 99999999:
+              print('Ingrese un rut valido.')
+              rutPasajero = int(input("ingrese su Rut: "))
+            telefonoPasajero = int(input("ingrese su Telefono: "))
+            while telefonoPasajero < 100000000 or telefonoPasajero > 999999999:
+              print('Ingrese numero valido.')
+              telefonoPasajero = int(input("ingrese su Telefono: "))
+            bancoPasajero = input("ingrese al banco que Pertenece: ")
             
             print("Seleccione el asiento que desea Comprar: ")
             compra = input()
@@ -50,7 +56,7 @@ while entrada != "5":
                 else:
                     if int(compra) <=30:
                         asiento = int(compra) - 1
-                        if bancoPasajero != "bancoDuoc":
+                        if bancoPasajero != "bancoduoc":
                             print("Asiento del tipo Normal... tiene un valor de $78.900")
                         else:
                             print("Asiento del tipo Normal... Usuario de bancoDuoc tiene un valor de $78.900 - el 15% =  $67.065")
@@ -62,7 +68,7 @@ while entrada != "5":
                         print(pasajeros)
                     if int(compra) >30 and int(compra) <=42:
                         asiento = int(compra) - 1
-                        if bancoPasajero != "bancoDuoc":
+                        if bancoPasajero != "bancoduoc":
                             print("Asiento del tipo VIP... tiene un valor de $240.000")
                         else:
                             print("Asiento del tipo VIP... Usuario de bancoDuoc tiene un valor de $240.000 - el 15% =  $204.000")
@@ -87,4 +93,4 @@ while entrada != "5":
         print(
                 "[1] Modificar Nombre Pasajero" + "\n" +
                 "[2] Modificar Numero Telefonico" + "\n")
-        entrada = input("Seleccione una Opcion: ")    
+        entrada = input("Seleccione una Opcion: ")     
